@@ -1,6 +1,6 @@
 import apiClient from "@/lib/apiClient";
 import { PostType, Profile } from "@/type/types";
-import { GetServerSideProps } from "next";
+import { GetServerSideProps, GetServerSidePropsContext } from "next";
 import React from "react";
 
 type Props = {
@@ -10,7 +10,9 @@ type Props = {
 
 //ページがあまり更新されないときはSSG
 //今回は情報の更新が多いので、SSRを利用
-export const getServerSideProps: GetServerSideProps = async (contenxt: any) => {
+export const getServerSideProps: GetServerSideProps = async (
+  contenxt: GetServerSidePropsContext
+) => {
   const { userId } = contenxt.query;
 
   try {
