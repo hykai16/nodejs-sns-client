@@ -16,7 +16,8 @@ apiClient.post("/login", { email, password });
 //バックエンドとの接続の際に
 //共通の設定を定義しておく
 const apiClient = axios.create({
-  baseURL: "http://localhost:5000/api",
+  // baseURL: "http://localhost:5000/api",
+  baseURL: process.env.NEXT_PUBLIC_API_BASEURL,
   headers: {
     "Content-Type": "application/json",
   },
